@@ -3,7 +3,7 @@ set -v
 
 echo "hello"
 
-helm3 repo add hashicorp https://helm.releases.hashicorp.com
+helm repo add hashicorp https://helm.releases.hashicorp.com
 
 echo "Creating gossip encryption key..."
 kubectl create secret generic consul-gossip-encryption-key --from-literal=key="$(consul keygen)"
