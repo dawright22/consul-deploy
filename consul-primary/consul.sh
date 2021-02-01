@@ -5,6 +5,8 @@ echo "hello"
 
 helm repo add hashicorp https://helm.releases.hashicorp.com
 
+sudo apt-get update && sudo apt-get install consul
+
 echo "Creating gossip encryption key..."
 kubectl create secret generic consul-gossip-encryption-key --from-literal=key="$(consul keygen)"
 
