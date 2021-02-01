@@ -5,7 +5,7 @@ set -v
 helm3 repo add hashicorp https://helm.releases.hashicorp.com
 
 echo "applying secret for federation CA and mesh gateway address..."
-kubectl apply -f ../../app_GKE/consul-mesh/consul-federation-secret.yaml
+kubectl apply -f consul-federation-secret.yaml
 
 echo "Installing consul using latest helm chart "
 helm install consul hashicorp/consul -f values.yaml #--debug
