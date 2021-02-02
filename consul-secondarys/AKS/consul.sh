@@ -12,7 +12,7 @@ helm install consul hashicorp/consul -f values.yaml #--debug
 
 sleep 10s
 
-kubectl apply -f customdns.yaml
+#kubectl apply -f customdns.yaml
 
 sleep 2
 
