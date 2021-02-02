@@ -17,20 +17,20 @@ echo "As this is the primary datacenter for federation, fetch the federation sec
 kubectl get secret consul-federation -o yaml > consul-federation-secret.yaml
 
 
-echo "Configuring Kube to forward consul DNS to consul..."
+# echo "Configuring Kube to forward consul DNS to consul..."
 
-cat <<EOF | kubectl apply -f -
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  labels:
-    addonmanager.kubernetes.io/mode: EnsureExists
-  name: kube-dns
-  namespace: kube-system
-data:
-  stubDomains: |
-    {"consul": ["$(kubectl get svc consul-dns -o jsonpath='{.spec.clusterIP}')"]}
-EOF
+# cat <<EOF | kubectl apply -f -
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   labels:
+#     addonmanager.kubernetes.io/mode: EnsureExists
+#   name: kube-dns
+#   namespace: kube-system
+# data:
+#   stubDomains: |
+#     {"consul": ["$(kubectl get svc consul-dns -o jsonpath='{.spec.clusterIP}')"]}
+# EOF
 
 sleep 10
 
