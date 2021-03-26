@@ -14,7 +14,7 @@ echo "Installing consul using latest helm chart "
 helm install consul hashicorp/consul -f values.yaml #--debug
 
 echo "As this is the primary datacenter for federation, fetch the federation secret and store in local file.."
-kubectl get secret consul-gossip-encryption-key -o yaml > consul-federation-secret.yaml
+kubectl get secret  consul-federation -o yaml > consul-federation-secret.yaml
 
 
 # echo "Configuring Kube to forward consul DNS to consul..."
